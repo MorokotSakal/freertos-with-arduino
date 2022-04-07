@@ -10,7 +10,13 @@ void setup() {
   // We also create the fourth task labeled as IdleTask when there is no task in
   // Operation and it has the higest priority
 
-  //xTaskCreate(MyTask_pointer, "task_name", 100, Parameter, Priority, TaskHandle);
+  //xTaskCreate(
+  // MyTask_pointer,  // Function to be called
+  // "task_name",     // Name of task
+  // 100,             // Stack size
+  // Parameter,       // Parameter to pass to function
+  // Priority,        // Task priority (0 to configMAX_PRIORITIES - 1)
+  // TaskHandle);     // 
 
   xTaskCreate(MyTask1, "Task1", 100, NULL, 1, NULL);
   xTaskCreate(MyTask2, "Task2", 100, NULL, 2, NULL);

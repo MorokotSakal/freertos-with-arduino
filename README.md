@@ -13,3 +13,10 @@ My personal repo for learning how to use FreeRTOS with Arduino.
 
 ## Environment Preparation
 - FreeRTOS library can be installed via Arduino libraries manager
+
+## Progress
+### Arduino RTOS
+### Videos
+- [x] Part 1 - What is RTOS?
+- [x] Part 2 - Getting started with RTOS
+- [ ] Part 3 - Task scheduling

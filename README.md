@@ -16,7 +16,26 @@ My personal repo for learning how to use FreeRTOS with Arduino.
 
 ## Progress
 ### Arduino RTOS
+- [x] Getting started 
+- [ ] Scheduler
+
+
 ### Videos
 - [x] Part 1 - What is RTOS?
 - [x] Part 2 - Getting started with RTOS
-- [ ] Part 3 - Task scheduling
+- [x] Part 3 - Task scheduling
+- [ ] Part 4 - Memory Management
+- [ ] Part 5 - Queue
+- [ ] Part 6 - Mutex
+- [ ] Part 7 - 
+- [ ] Part 8
+- [ ] Part 9
+- [ ] Part 10
+- [ ] 
+
+
+## Notes
+- default timeslice duration of FreeRTOS is 1 millisecond
+- preemptive scheduling
+- hardware interrupt > software interrupt --> hw will run first then sw
+- context switching

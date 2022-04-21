@@ -18,11 +18,11 @@ void printMessages(void *parameters) {
   while(1) {
 
     // See if there's a message in the queue (do not block)
-    if (xQueueReceive(msgQueue, (void *)&item, 0) ==pdTRUE) {
+    if (xQueueReceive(msgQueue, (void *)&item, 0) ==pdPASS) {
 
       Serial.println(item);
 
-      // Wait before tring again
+      // Wait before trying again
       vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
   }
@@ -34,8 +34,9 @@ void setup() {
   Serial.begin(9600);
 
   // Wait a moment to start (so we don't miss Serial output)
-  vTaskDelay(1000 / portTICK_PERIOD_MS);
-  Serial.println();
+  // vTaskDelay(1000 / portTICK_PERIOD_MS);
+  
+  //Serial.println();
   Serial.println("---FreeRTOS Queue Demo---");
 
   // Create queue
@@ -44,10 +45,11 @@ void setup() {
   // Start print task
   xTaskCreate(printMessages, 
               "Print Message",
-              1024,
+              240,
               NULL,
               1,
               NULL);
+   vTaskStartScheduler();
 }
 
 void loop() {
@@ -55,12 +57,12 @@ void loop() {
   static int num = 0;
 
   // Try to add item to queue for 10 ticks, fail if queue is full
-  if (xQueueSend(msgQueue, (void *)&num, 10) != pdTRUE) {
+  if (xQueueSend(msgQueue, (void *)&num, 10) != pdPASS) {
     Serial.println("Queue full");
   }
   num++;
 
   // Wait before trying again
-  vTaskDelay(500 / portTICK_PERIOD_MS);
+  vTaskDelay(1000 / portTICK_PERIOD_MS);
   
 }
